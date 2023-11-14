@@ -205,16 +205,13 @@ switch(deviceType) {
     }
 }
   
-
-  // Генерируем случайный MAC-адрес
   esp_bd_addr_t random_addr;
   for (int i = 0; i < 6; i++) {
     random_addr[i] = random(256);
   }
   pAdvertising->setDeviceAddress(random_addr, BLE_ADDR_TYPE_RANDOM);
-
   pAdvertising->setAdvertisementData(oAdvertisementData);
-    // Start advertising
+    
     Serial.println("Sending Advertisement...");
     pAdvertising->start();
     delay(delayMileSeconds * 10); 
